@@ -1,0 +1,71 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "OpenApi Documentation",
+        "description": "Документация для микро сервиса",
+        "contact": {
+            "email": "hello@example.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://my-default-host.com",
+            "description": "Основной API"
+        },
+        {
+            "url": "http://my-default-host.com",
+            "description": "Для Логирования"
+        }
+    ],
+    "paths": {
+        "api/v1/notebook": {
+            "get": {
+                "tags": [
+                    "Notebook"
+                ],
+                "summary": "Получение всех записей",
+                "operationId": "allRecords",
+                "responses": {
+                    "200": {
+                        "description": "Успешно",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Notebook"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Notebook": {
+                "title": "Notebook",
+                "description": "Notebook model",
+                "properties": {
+                    "fillable": {
+                        "title": "ID",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Notebook"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Notebook",
+            "description": "Записная книжка"
+        }
+    ]
+}
