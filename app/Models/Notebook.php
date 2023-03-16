@@ -22,38 +22,30 @@ class Notebook extends Model
     use HasFactory;
 
     /**
-     * @OA\Items(
-     *     @OA\Property(
-     *     title="initials",
-     *     description="Инициалы",
-     *     example="Смирнов Никита Андреевич"
-     *  ),
-     *     @OA\Property(
-     *     title="company",
-     *     description="Компания",
-     *     example="Future"
-     *  ),
-     *     @OA\Property(
-     *     title="phone",
-     *     description="Телефонный номер",
-     *     example=88005553535
-     *  ),
-     *     @OA\Property(
-     *     title="email",
-     *     description="Почта",
-     *     example="example@gmail.com"
-     *  ),
-     *     @OA\Property(
-     *     title="birthday",
-     *     description="Дата рождения",
-     *     example="1995-04-15T00:00:00.000000Z"
-     *  ),
-     *     @OA\Property(
-     *     title="photo",
-     *     description="Фотография",
-     *     example="uuid()"
-     *  ),
-     *)
+     * @OA\Property(
+     *      property="initials",
+     *      type="string",
+     * ),
+     * @OA\Property(
+     *      property="company",
+     *      type="string",
+     * ),
+     * @OA\Property(
+     *      property="phone",
+     *      type="string",
+     *),
+     * @OA\Property(
+     *      property="email",
+     *      type="string",
+     *),
+     * @OA\Property(
+     *      property="birthday",
+     *      type="string",
+     *),
+     * @OA\Property(
+     *      property="photo",
+     *      type="string"
+     *),
      */
 
     protected $fillable = [

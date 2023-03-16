@@ -294,8 +294,8 @@ return [
          * Constants which can be used in annotations
          */
         'constants' => [
-            'L5_SWAGGER_CONST_HOST' => env('L5_SWAGGER_CONST_HOST', 'http://localhost:8000/api'),
-            'L5_SWAGGER_CONST_HOST_V2' => env('L5_SWAGGER_CONST_HOST_V2', 'http://localhost:8000/api'),
+            'L5_SWAGGER_CONST_HOST' => env('L5_SWAGGER_CONST_HOST', 'http://localhost:8000//'),
+            'L5_SWAGGER_CONST_HOST_V2' => env('L5_SWAGGER_CONST_HOST_V2', 'http://localhost:8000//'),
             'L5_SWAGGER_CONST_EMAIL' => env('MAIL_FROM_ADDRESS', 'no-reply@example.com'),
         ],
     ],

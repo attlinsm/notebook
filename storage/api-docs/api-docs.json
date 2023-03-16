@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "OpenApi Documentation",
-        "description": "Документация для микро сервиса",
+        "description": "Документация для API",
         "contact": {
             "email": "hello@example.com"
         },
@@ -10,11 +10,11 @@
     },
     "servers": [
         {
-            "url": "http://my-default-host.com",
+            "url": "http://localhost:8000//",
             "description": "Основной API"
         },
         {
-            "url": "http://my-default-host.com",
+            "url": "http://localhost:8000//",
             "description": "Для Логирования"
         }
     ],
@@ -28,7 +28,7 @@
                 "operationId": "allRecords",
                 "responses": {
                     "200": {
-                        "description": "Успешно",
+                        "description": "Successful operation",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -36,6 +36,206 @@
                                 }
                             }
                         }
+                    },
+                    "204": {
+                        "description": "No content"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Notebook"
+                ],
+                "summary": "Добавление записи",
+                "operationId": "newRecord",
+                "requestBody": {
+                    "description": "Запрос",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "initials": {
+                                        "type": "string",
+                                        "example": "Bob Big Finger"
+                                    },
+                                    "company": {
+                                        "type": "string",
+                                        "example": "Future"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "88005553535"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "bobbigone@gmail.com"
+                                    },
+                                    "birthday": {
+                                        "type": "string",
+                                        "example": "1935-04-15T00:00:00.000000Z"
+                                    },
+                                    "photo": {
+                                        "type": "string",
+                                        "example": "uuid()"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Notebook"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "api/v1/notebook/{id}": {
+            "get": {
+                "tags": [
+                    "Notebook"
+                ],
+                "summary": "Получение выбранной записи",
+                "operationId": "recordById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Note id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Notebook"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Notebook"
+                ],
+                "summary": "Обновление выбранной записи",
+                "operationId": "updateRecordById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Note id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Запрос",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "initials": {
+                                        "type": "string",
+                                        "example": "Bob Big Finger"
+                                    },
+                                    "company": {
+                                        "type": "string",
+                                        "example": "Future"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "88005553535"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "bobbigone@gmail.com"
+                                    },
+                                    "birthday": {
+                                        "type": "string",
+                                        "example": "1935-04-15T00:00:00.000000Z"
+                                    },
+                                    "photo": {
+                                        "type": "string",
+                                        "example": "uuid()"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Notebook"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Notebook"
+                ],
+                "summary": "Удаление выбранной записи",
+                "description": "Удаляет запись и возвращает пустой ответ",
+                "operationId": "deleteRecordById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Note id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
                     }
                 }
             }
@@ -47,12 +247,23 @@
                 "title": "Notebook",
                 "description": "Notebook model",
                 "properties": {
-                    "fillable": {
-                        "title": "ID",
-                        "description": "ID",
-                        "type": "integer",
-                        "format": "int64",
-                        "example": 1
+                    "initials": {
+                        "type": "string"
+                    },
+                    "company": {
+                        "type": "string"
+                    },
+                    "phone": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "birthday": {
+                        "type": "string"
+                    },
+                    "photo": {
+                        "type": "string"
                     }
                 },
                 "type": "object",
