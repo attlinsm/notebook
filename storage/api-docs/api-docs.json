@@ -243,26 +243,87 @@
     },
     "components": {
         "schemas": {
+            "StoreNotebookRequest": {
+                "title": "StoreNotebookRequest",
+                "description": "StoreNotebookRequest data",
+                "required": [
+                    "initials",
+                    "phone",
+                    "email"
+                ],
+                "properties": {
+                    "initials": {
+                        "description": "Инициалы"
+                    },
+                    "company": {
+                        "description": "Компания"
+                    },
+                    "phone": {
+                        "description": "Телефон"
+                    },
+                    "email": {
+                        "description": "Почта"
+                    },
+                    "birthday": {
+                        "description": "Дата рождения"
+                    },
+                    "photo": {
+                        "description": "Фотография"
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateNotebookRequest": {
+                "title": "UpdateNotebookRequest",
+                "description": "UpdateNotebookRequest data",
+                "properties": {
+                    "initials": {
+                        "description": "Инициалы"
+                    },
+                    "company": {
+                        "description": "Компания"
+                    },
+                    "phone": {
+                        "description": "Телефон"
+                    },
+                    "email": {
+                        "description": "Почта"
+                    },
+                    "birthday": {
+                        "description": "Дата рождения"
+                    },
+                    "photo": {
+                        "description": "Фотография"
+                    }
+                },
+                "type": "object"
+            },
             "Notebook": {
                 "title": "Notebook",
                 "description": "Notebook model",
                 "properties": {
                     "initials": {
+                        "description": "Инициалы",
                         "type": "string"
                     },
                     "company": {
+                        "description": "Компания",
                         "type": "string"
                     },
                     "phone": {
+                        "description": "Телефон",
                         "type": "string"
                     },
                     "email": {
+                        "description": "Почта",
                         "type": "string"
                     },
                     "birthday": {
+                        "description": "Дата рождения",
                         "type": "string"
                     },
                     "photo": {
+                        "description": "Фотография",
                         "type": "string"
                     }
                 },

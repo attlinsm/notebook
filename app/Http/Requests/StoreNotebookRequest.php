@@ -3,22 +3,51 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use OpenApi\Annotations as OA;
+
+/**
+ * @OA\Schema(
+ *      title="StoreNotebookRequest",
+ *      description="StoreNotebookRequest data",
+ *      type="object",
+ *      required={"initials", "phone", "email"}
+ * )
+ */
 
 class StoreNotebookRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * @OA\Property(
+     *      property="initials",
+     *      description="Инициалы",
+     * ),
+     * @OA\Property(
+     *      property="company",
+     *      description="Компания",
+     * ),
+     * @OA\Property(
+     *      property="phone",
+     *      description="Телефон",
+     *),
+     * @OA\Property(
+     *      property="email",
+     *      description="Почта",
+     *),
+     * @OA\Property(
+     *      property="birthday",
+     *      description="Дата рождения",
+     *),
+     * @OA\Property(
+     *      property="photo",
+     *      description="Фотография"
+     *),
      */
+
     public function authorize(): bool
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\Rule|array|string>
-     */
     public function rules(): array
     {
         return [

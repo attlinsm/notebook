@@ -25,26 +25,32 @@ class Notebook extends Model
      * @OA\Property(
      *      property="initials",
      *      type="string",
+     *      description="Инициалы",
      * ),
      * @OA\Property(
      *      property="company",
      *      type="string",
+     *      description="Компания",
      * ),
      * @OA\Property(
      *      property="phone",
      *      type="string",
+     *      description="Телефон",
      *),
      * @OA\Property(
      *      property="email",
      *      type="string",
+     *      description="Почта",
      *),
      * @OA\Property(
      *      property="birthday",
      *      type="string",
+     *      description="Дата рождения",
      *),
      * @OA\Property(
      *      property="photo",
-     *      type="string"
+     *      type="string",
+     *      description="Фотография",
      *),
      */
 
