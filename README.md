@@ -15,6 +15,7 @@
 
 ### Порядок установки
 
+- Переименовать .env.example -> .env
 - docker-compose build app
 - docker-compose up -d
 - docker-compose exec app composer install
